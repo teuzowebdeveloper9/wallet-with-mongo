@@ -9,7 +9,7 @@ async function signup(body){
 
   
 
-  await authRepository.create({...body, password: hashPassword})
+  return await authRepository.create({...body, password: hashPassword})
   
 }
 

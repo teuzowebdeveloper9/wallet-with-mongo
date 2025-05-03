@@ -1,8 +1,7 @@
-
 import UserSchema from "../../schemas/user.js";
 
-function create(data){
- return data;
+async function create(data){
+ return UserSchema.create(data);
 }
 
 async function findByEmail(email){
