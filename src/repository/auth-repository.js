@@ -1,4 +1,4 @@
-import UserSchema from "../../schemas/user.js";
+import UserSchema from "../schemas/user.js";
 import jwt from 'jsonwebtoken'
 import 'dotenv/config'
 
@@ -12,8 +12,16 @@ async function findByEmail(email){
   return user
 }
 
+
+async function findById(email){
+    const user = await UserSchema.findById({id})
+  
+    return user
+  }
+
+
 async function generateToken(id){
   return jwt.sign({id}, 'PASSWORD', {expiresIn: 172800});
 }
 
-export default {create, findByEmail,generateToken }
+export default {create, findByEmail,generateToken,findById}

@@ -1,5 +1,7 @@
-import transactions from "../../schemas/transactions.js";
+import transactions from "../schemas/transactions.js";
 
 async function create(data){
     return transactions.create()
 }
+
+export default {create};
