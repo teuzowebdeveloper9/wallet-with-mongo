@@ -13,4 +13,14 @@ async function create(req,res) {
   }
 }
 
+async function findAll(req,res){
+    const {id : _id} = res.locals.user;
+
+    try{
+        const transactions = await transactionService.findAll(id)
+    }catch(err){
+        res.status(404).send('erro na transação')
+    }
+}
+
 export default {create}
