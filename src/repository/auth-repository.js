@@ -1,4 +1,14 @@
+
+import UserSchema from "../../schemas/user.js";
+
 function create(data){
  return data;
 }
-export default {create}
+
+async function findByEmail(email){
+  const user = await UserSchema.findOne({email})
+
+  return user
+}
+
+export default {create, findByEmail}

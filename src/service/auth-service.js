@@ -1,10 +1,15 @@
 import bcrypt from 'bcrypt'
 import authRepository from '../repository/auth-repository.js';
 
-function signup(body){
+async function signup(body){
   const hashPassword = bcrypt.hashSync(body.password, 10);
 
-  return authRepository.create({...body, password: hashPassword})
+  const userExist = await authRepository.findByEmail(body.email)
+  if(userExist) throw new Error('user already exists ! ');
+
+  
+
+  await authRepository.create({...body, password: hashPassword})
   
 }
 
