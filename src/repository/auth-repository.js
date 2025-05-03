@@ -1,4 +1,6 @@
 import UserSchema from "../../schemas/user.js";
+import jwt from 'jsonwebtoken'
+import 'dotenv/config'
 
 async function create(data){
  return UserSchema.create(data);
@@ -11,7 +13,7 @@ async function findByEmail(email){
 }
 
 async function generateToken(id){
-  return id;
+  return jwt.sign({id}, 'PASSWORD', {expiresIn: 172800});
 }
 
 export default {create, findByEmail,generateToken }
