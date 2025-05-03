@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import authRepository from "../repository/auth-repository"
+import authRepository from "../repository/auth-repository.js"
 
 export async function middleware(req,res, next){
     const {autorization}  = req.headers
@@ -23,7 +23,7 @@ export async function middleware(req,res, next){
 
      const user = await authRepository.findById(decode.id)
 
-        
+
 
      next()
     })

@@ -6,4 +6,6 @@ const transactionRouter = Router()
 
 transactionRouter.post('/transaction', middleware() ,transactionsController.create)
 
+transactionRouter.get('/transaction')
+
 export default transactionRouter
